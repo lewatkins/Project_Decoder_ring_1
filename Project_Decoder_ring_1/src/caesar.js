@@ -59,11 +59,11 @@ const caesarModule = (function() {
             }
             return result;
         }
+        console.log(outPutMsg);
+        return outPutMsg;
     }
-    console.log(outPutMsg);
     return {
-        //caesar,
-        outPutMsg,
+        caesar,
     };
 })();
 
