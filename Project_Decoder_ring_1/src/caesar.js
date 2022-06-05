@@ -9,7 +9,7 @@ const caesarModule = (function() {
     let newAlphabet = "";
     let outPutMsg = "";
 
-    //caesar("This is a secret message!", 8);
+    //caesar("thinkful", 3);
     //console.log(caesar);
 
     function caesar(input, shift, encode = true) {
@@ -28,6 +28,7 @@ const caesarModule = (function() {
         function createNewAlphabet(shift) {
             for (let i = 0; i < baseAlphabet.length; i++) {
                 let offset = (i + shift) % baseAlphabet.length;
+                if (offset < 0) offset += 26;
                 newAlphabet += baseAlphabet[offset];
             }
         }
