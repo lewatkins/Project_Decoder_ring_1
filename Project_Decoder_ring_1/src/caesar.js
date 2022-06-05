@@ -16,7 +16,7 @@ const caesarModule = (function() {
     //output = caesar("This#)*&^% is a test message", 23, true);
 
     function caesar(input, shift, encode = true) {
-        if (shift === 0 || shift === -25 || shift > 25) {
+        if (shift === 0 || shift < 25 || shift > 25) {
             return false;
         }
         createNewAlphabet(shift);
