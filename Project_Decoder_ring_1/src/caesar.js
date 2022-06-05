@@ -9,7 +9,7 @@ const caesarModule = (function() {
     let newAlphabet = "";
     let outPutMsg = "";
 
-    //caesar("thinkful", -3);
+    caesar("thinkful", -3);
     //console.log(caesar);
 
     function caesar(input, shift, encode = true) {
