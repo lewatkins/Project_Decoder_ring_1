@@ -8,8 +8,10 @@ const caesarModule = (function() {
     const baseAlphabet = 'abcdefghijklmnopqrstuvwxyz';
     let newAlphabet = "";
     let outPutMsg = "";
+    let encodedMsg = "";
+    let decodedMsg = "";
 
-    //caesar("thinkful", -3);
+    //caesar("zebra magazine", -3);
     //console.log(caesar);
 
     function caesar(input, shift, encode = true) {
@@ -27,43 +29,41 @@ const caesarModule = (function() {
 
 
         function createNewAlphabet(shift) {
-            console.log(shift);
+            //console.log(shift);
             if (shift < 0) { shift = 26 + (shift % 26); };
             for (let i = 0; i < baseAlphabet.length; i++) {
                 let offset = (i + shift) % baseAlphabet.length;
                 newAlphabet += baseAlphabet[offset];
             }
-            console.log(shift);
-            console.log(input);
-            console.log(newAlphabet);
+            //console.log(shift);
+            //console.log(input);
+            //console.log(newAlphabet);
         }
 
         function encodeMsg(message) {
-            let result = "";
             message = message.toLowerCase();
             for (let i = 0; i < message.length; i++) {
                 let index = baseAlphabet.indexOf(message[i]);
                 if (index === -1) {
-                    result += message[i];
+                    encodedMsg += message[i];
                 } else {
-                    result += newAlphabet[index];
+                    encodedMsg += newAlphabet[index];
                 }
             }
-            return result;
+            return encodedMsg;
         }
 
         function decodeMsg(message) {
-            let result = "";
             message = message.toLowerCase();
             for (let i = 0; i < message.length; i++) {
                 let index = newAlphabet.indexOf(message[i]);
                 if (index === -1) {
-                    result += message[i];
+                    decodedMsg += message[i];
                 } else {
-                    result += baseAlphabet[index];
+                    decodedMsg += baseAlphabet[index];
                 }
             }
-            return result;
+            return decodedMsg;
         }
         console.log(outPutMsg);
         return outPutMsg;
