@@ -9,13 +9,14 @@ const caesarModule = (function() {
     let newAlphabet = "";
     let outPutMsg = "";
 
-    caesar("thinkful", -3);
+    //caesar("thinkful", -3);
     //console.log(caesar);
 
     function caesar(input, shift, encode = true) {
         if (shift === 0 || shift < -25 || shift > 25) {
             return false;
         }
+
         createNewAlphabet(shift);
 
         if (encode) {
@@ -26,11 +27,15 @@ const caesarModule = (function() {
 
 
         function createNewAlphabet(shift) {
+            console.log(shift);
             if (shift < 0) { shift = 26 + (shift % 26); };
             for (let i = 0; i < baseAlphabet.length; i++) {
                 let offset = (i + shift) % baseAlphabet.length;
                 newAlphabet += baseAlphabet[offset];
             }
+            console.log(shift);
+            console.log(input);
+            console.log(newAlphabet);
         }
 
         function encodeMsg(message) {
