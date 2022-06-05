@@ -7,24 +7,18 @@ const caesarModule = (function() {
 
     const baseAlphabet = 'abcdefghijklmnopqrstuvwxyz';
     let newAlphabet = "";
-    let encodedMessage = "";
-    let decodedMessage = "";
-    let output = "";
 
-
-    //caesar("thinkful", 3);
-
+    //caesar("This is a secret message!", 8);
+    //console.log(caesar);
 
     function caesar(input, shift, encode = true) {
         if (shift === 0 || shift < -25 || shift > 25) {
             return false;
         }
         createNewAlphabet(shift);
-        //console.log(newAlphabet);
 
         if (encode) {
             caesar = encode(input);
-            //console.log(caesar);
         } else {
             caesar = decode(input);
         }
@@ -65,7 +59,7 @@ const caesarModule = (function() {
             return result;
         }
     }
-
+    console.log(caesar);
     return {
         caesar,
     };
