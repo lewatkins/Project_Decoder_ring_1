@@ -8,8 +8,8 @@ const caesarModule = (function() {
     const baseAlphabet = 'abcdefghijklmnopqrstuvwxyz';
     let newAlphabet = "";
 
-    caesar("This is a secret message!", 8);
-    console.log(caesar);
+    //caesar("This is a secret message!", 8);
+    //console.log(caesar);
 
     function caesar(input, shift, encode = true) {
         if (shift === 0 || shift < -25 || shift > 25) {
