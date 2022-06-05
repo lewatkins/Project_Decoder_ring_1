@@ -9,7 +9,7 @@ const caesarModule = (function() {
     let newAlphabet = "";
     let outPutMsg = "";
 
-    //caesar("thinkful", 3);
+    caesar("thinkful", -3);
     //console.log(caesar);
 
     function caesar(input, shift, encode = true) {
@@ -26,9 +26,9 @@ const caesarModule = (function() {
 
 
         function createNewAlphabet(shift) {
+            if (shift < 0) { shift = 26 + (shift % 26); };
             for (let i = 0; i < baseAlphabet.length; i++) {
                 let offset = (i + shift) % baseAlphabet.length;
-                if (offset < 0) offset += 26;
                 newAlphabet += baseAlphabet[offset];
             }
         }
