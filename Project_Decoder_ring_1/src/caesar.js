@@ -11,25 +11,24 @@ const caesarModule = (function() {
     let decodedMessage = "";
     let output = "";
 
-    //let shiftAmt = 0;
 
-    //output = caesar("This#)*&^% is a test message", 23, true);
+    //caesar("thinkful", 3);
+
 
     function caesar(input, shift, encode = true) {
-        if (shift === 0 || shift < 25 || shift > 25) {
+        if (shift === 0 || shift < -25 || shift > 25) {
             return false;
         }
         createNewAlphabet(shift);
+        //console.log(newAlphabet);
+
         if (encode) {
-            encodedMessage = encode(input);
-            return encodedMessage;;
+            caesar = encode(input);
+            //console.log(caesar);
         } else {
-            decodedMessage = decode(input);
-            return decodedMessage;
+            caesar = decode(input);
         }
 
-
-        //console.log(encodedMessage);
 
         function createNewAlphabet(shift) {
             for (let i = 0; i < baseAlphabet.length; i++) {
@@ -43,15 +42,12 @@ const caesarModule = (function() {
             message = message.toLowerCase();
             for (let i = 0; i < message.length; i++) {
                 let index = baseAlphabet.indexOf(message[i]);
-                //console.log(index);
                 if (index === -1) {
-                    // console.log(message[i]);
                     result += message[i];
                 } else {
                     result += newAlphabet[index];
                 }
             }
-            console.log(result);
             return result;
         }
 
@@ -61,7 +57,6 @@ const caesarModule = (function() {
             for (let i = 0; i < message.length; i++) {
                 let index = newAlphabet.indexOf(message[i]);
                 if (index === -1) {
-                    // console.log(message[i]);
                     result += message[i];
                 } else {
                     result += baseAlphabet[index];
