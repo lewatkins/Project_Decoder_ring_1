@@ -27,6 +27,8 @@ const caesarModule = (function() {
             outPutMsg = decodeMsg(input);
         }
 
+        return outPutMsg;
+
 
         function createNewAlphabet(shift) {
             //console.log(shift);
@@ -35,14 +37,15 @@ const caesarModule = (function() {
                 let offset = (i + shift) % baseAlphabet.length;
                 newAlphabet += baseAlphabet[offset];
             }
-            //console.log(shift);
-            //console.log(input);
-            //console.log(newAlphabet);
+            console.log(shift);
+            console.log(input);
+            console.log(newAlphabet);
         }
 
         function encodeMsg(message) {
             encodedMsg = "";
             message = message.toLowerCase();
+            console.log(message, "Original Msg");
             for (let i = 0; i < message.length; i++) {
                 let index = baseAlphabet.indexOf(message[i]);
                 if (index === -1) {
@@ -51,6 +54,7 @@ const caesarModule = (function() {
                     encodedMsg += newAlphabet[index];
                 }
             }
+            console.log(encodedMsg, "Encoded Msg");
             return encodedMsg;
         }
 
