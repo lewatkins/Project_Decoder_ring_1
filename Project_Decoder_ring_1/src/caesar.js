@@ -7,12 +7,13 @@ const caesarModule = (function() {
 
     const baseAlphabet = 'abcdefghijklmnopqrstuvwxyz';
     let newAlphabet = "";
-    let outPutMsg = "";
+    let outputMsg = "";
     let encodedMsg = "";
     let decodedMsg = "";
 
-    //caesar("zebra magazine", -3);
-    //console.log(caesar);
+
+    // caesar("zebra magazine", -3);
+    //console.log(outputMsg);
 
     function caesar(input, shift, encode = true) {
         if (shift === 0 || shift < -25 || shift > 25) {
@@ -22,16 +23,18 @@ const caesarModule = (function() {
         createNewAlphabet(shift);
 
         if (encode) {
-            outPutMsg = encodeMsg(input);
+            outputMsg = encodeMsg(input);
+            return outputMsg;
         } else {
-            outPutMsg = decodeMsg(input);
+            outputMsg = decodeMsg(input);
         }
 
-        return outPutMsg;
+        return outputMsg;
 
 
         function createNewAlphabet(shift) {
             //console.log(shift);
+            newAlphabet = "";
             if (shift < 0) { shift = 26 + (shift % 26); };
             for (let i = 0; i < baseAlphabet.length; i++) {
                 let offset = (i + shift) % baseAlphabet.length;
@@ -45,7 +48,7 @@ const caesarModule = (function() {
         function encodeMsg(message) {
             encodedMsg = "";
             message = message.toLowerCase();
-            console.log(message, "Original Msg");
+            console.log("Input message = ", message);
             for (let i = 0; i < message.length; i++) {
                 let index = baseAlphabet.indexOf(message[i]);
                 if (index === -1) {
@@ -54,7 +57,7 @@ const caesarModule = (function() {
                     encodedMsg += newAlphabet[index];
                 }
             }
-            console.log(encodedMsg, "Encoded Msg");
+            console.log("Encoded message = ", encodedMsg);
             return encodedMsg;
         }
 
@@ -71,8 +74,8 @@ const caesarModule = (function() {
             }
             return decodedMsg;
         }
-        console.log(outPutMsg);
-        return outPutMsg;
+        console.log(outputMsg);
+        //return outputMsg;
     }
     return {
         caesar,
