@@ -18,6 +18,7 @@ const polybiusModule = (function() {
     let currentChar = " ";
     let rowId = 0;
 
+    let myName = "Gene Watkins";
 
     function polybius(input, encode = true) {
         result = "";
