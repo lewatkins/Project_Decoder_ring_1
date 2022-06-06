@@ -41,6 +41,7 @@ const caesarModule = (function() {
         }
 
         function encodeMsg(message) {
+            encodedMsg = "";
             message = message.toLowerCase();
             for (let i = 0; i < message.length; i++) {
                 let index = baseAlphabet.indexOf(message[i]);
@@ -54,6 +55,7 @@ const caesarModule = (function() {
         }
 
         function decodeMsg(message) {
+            decodedMsg = "";
             message = message.toLowerCase();
             for (let i = 0; i < message.length; i++) {
                 let index = newAlphabet.indexOf(message[i]);
