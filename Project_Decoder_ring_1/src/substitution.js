@@ -36,7 +36,7 @@ const substitutionModule = (function() {
             outputData = "";
             console.log(alphabet);
             for (let i = 0; i < input.length; i++) {
-                if (input[i] === space || ((input[i].toLowerCase() < "a") || (input[i].toLowerCase() > "z"))) {
+                if (input[i] === space) {
                     console.log(input[i].toLowerCase);
                     outputData += input[i];
                 } else {
