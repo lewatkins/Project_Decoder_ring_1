@@ -6,8 +6,11 @@
 const substitutionModule = (function() {
 
     const stdAlphabet = "abcdefghijklmnopqrstuvwxyz";
+    const space = " ";
+    let outputData = "";
 
     let duplicateFound = false;
+    let encodedData = "";
 
     function substitution(input, alphabet, encode = true) {
         // your solution code here
@@ -23,11 +26,24 @@ const substitutionModule = (function() {
         if (encode) {
             console.log("Encode entered");
             for (let i = 0; i < input.length; i++) {
-
+                if (input[i] === space) {
+                    outputData += space;
+                } else {
+                    outputData += alphabet[stdAlphabet.indexOf(input[i].toLowerCase())];
+                }
             }
         } else {
             console.log("Decode error");
+            for (let i = 0; i < input.length; i++) {
+                if (input[i] === space) {
+                    outputData += space;
+                } else {
+                    outputData += stdAlphabet[alphabet.indexOf(input[i].toLowerCase())];
+                }
+            }
         }
+        return outputData;
+
 
         function checkDuplicate(arr) {
             let map = {};
