@@ -26,7 +26,7 @@ const substitutionModule = (function() {
         if (encode) {
             console.log("Encode entered");
             for (let i = 0; i < input.length; i++) {
-                if (input[i] === space) {
+                if (input[i] === space || (input[i].toLowerCase() < "a") || (input[i].toLowerCase() > "z")) {
                     outputData += space;
                 } else {
                     outputData += alphabet[stdAlphabet.indexOf(input[i].toLowerCase())];
@@ -35,7 +35,7 @@ const substitutionModule = (function() {
         } else {
             console.log("Decode error");
             for (let i = 0; i < input.length; i++) {
-                if (input[i] === space) {
+                if (input[i] === space || (input[i].toLowerCase() < "a") || (input[i].toLowerCase() > "z")) {
                     outputData += space;
                 } else {
                     outputData += stdAlphabet[alphabet.indexOf(input[i].toLowerCase())];
