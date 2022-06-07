@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { caesar } = require("../src/caesar");
 
-describe("caesar() My test copied in large part from the project", () => {
+describe("caesar() My test copied from the Thinkful project", () => {
     describe("error handling", () => {
         it("should return false if the shift amount is 0", () => {
             const message = "zebra magazine";
