@@ -22,6 +22,9 @@ const substitutionModule = (function() {
 
         if (encode) {
             console.log("Encode entered");
+            for (let i = 0; i < input.length; i++) {
+
+            }
         } else {
             console.log("Decode error");
         }
