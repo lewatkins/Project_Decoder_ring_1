@@ -11,11 +11,10 @@ const substitutionModule = (function() {
 
     function substitution(input, alphabet, encode = true) {
         // your solution code here
-        if (alphabet.length !== 26) {
-            return false;
-        }
+        if (alphabet === undefined) return false;
+        if (alphabet.length !== 26) return false;
 
-        duplicateFound = checkDuplicate();
+        duplicateFound = checkDuplicate(alphabet);
 
         if (duplicateFound) {
             return false;
