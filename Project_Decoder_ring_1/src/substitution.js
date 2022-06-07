@@ -3,16 +3,57 @@
 // Only add code (helper methods, variables, etc.) within the scope
 // of the anonymous function on line 6
 
-const substitutionModule = (function () {
-  // you can add any code you want within this function scope
+const substitutionModule = (function() {
 
-  function substitution(input, alphabet, encode = true) {
-    // your solution code here
-  }
+    const stdAlphabet = "abcdefghijklmnopqrstuvwxyz";
 
-  return {
-    substitution,
-  };
+    let duplicateFound = false;
+
+    function substitution(input, subAlphabet, encode = true) {
+        // your solution code here
+        if (alphabet.length !== 26) {
+            return false;
+        }
+
+        duplicateFound = checkDuplicate();
+
+        if (duplicateFound) {
+            return false;
+        }
+
+        if (encode) {
+            console.log("Encode entered");
+        } else {
+            console.log("Decode error");
+        }
+
+        function checkDuplicate(arr) {
+            let map = {};
+            let result = false;
+            for (let i = 0; i < arr.length; i++) {
+                // check if object contains entry with this element as key
+                if (map[arr[i]]) {
+                    result = true;
+                    // terminate the loop
+                    break;
+                }
+                // add entry in object with the element as key
+                map[arr[i]] = true;
+            }
+            return result;
+        }
+
+    } //End of main function
+
+    return {
+        substitution,
+    };
 })();
 
-module.exports = { substitution: substitutionModule.substitution };
+module.exports = {
+    substitution: substitutionModule.substitution
+};
+
+module.exports = {
+    substitution: substitutionModule.substitution
+};
